@@ -11,23 +11,23 @@
 		</commentGenerator>
 		<!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
 		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-			connectionURL="jdbc:mysql://127.0.0.1:3306/test?serverTimezone=UTC" userId="root"
-			password="root123">
+			connectionURL="jdbc:mysql://127.0.0.1:3306/groupon?serverTimezone=UTC" userId="root"
+			password="2437262431">
 		</jdbcConnection>
 		<!-- <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
-			connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:yycg" 
+			connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:yycg"
 			userId="yycg"
 			password="yycg">
 		</jdbcConnection> -->
 
-		<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和 
+		<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
 			NUMERIC 类型解析为java.math.BigDecimal -->
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
 
 		<!-- targetProject:生成PO类的位置 -->
-		<javaModelGenerator targetPackage="com.eg.test.entity"
+		<javaModelGenerator targetPackage="com.eg.test.mapper.entity"
 			targetProject=".\src">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
@@ -36,7 +36,7 @@
 		</javaModelGenerator>
         <!-- targetProject:mapper映射文件生成的位置 -->
 		<sqlMapGenerator targetPackage="com.eg.test.mapper"
-			targetProject=".\resource">
+			targetProject="./src">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
 		</sqlMapGenerator>
@@ -48,7 +48,8 @@
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
 		<!-- 指定数据库表 -->
-		<table tableName="test"></table>
+		<!--<table tableName="test"></table>-->
+		<table tableName="user"></table>
 		<!--<table schema="" tableName="tb_address"></table>-->
 		<!--<table schema="" tableName="tb_areas"></table>-->
 		<!--<table schema="" tableName="tb_brand"></table>-->
@@ -70,7 +71,7 @@
 		<!--<table schema="" tableName="tb_specification_option"></table>-->
 		<!--<table schema="" tableName="tb_type_template"></table>-->
 		<!--<table schema="" tableName="tb_user"></table>-->
-		
+
 		<!-- 有些表的字段需要指定java类型
 		<table schema="" tableName="">
 			<columnOverride column="" javaType="" />
